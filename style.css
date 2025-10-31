@@ -1,0 +1,57 @@
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  background: #fdfdfb;
+  color: #1e1e1e;
+  margin: 0;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+}
+
+.card h2 {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.card p {
+  margin: 0.25rem 0;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.actions button {
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  background: white;
+  border: 1px solid #c1b69c;
+  color: #1e1e1e;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.actions button:hover {
+  background: #f3f0ea;
+}
