@@ -104,31 +104,30 @@
       };
     }
 
-    // Values sent by Zap in the result_url
     const { status, usage, name, blend, msg } = getParams();
     const content = document.getElementById("content");
 
-    // If no status at all → generic message
     if (!status) {
+      // No data – generic fallback
       content.innerHTML = `
         <h1>Your Custom Scent Blend</h1>
-        <p class="sub">No blend data was provided. Try generating a new blend from the ScentQI website.</p>
+        <p class="sub">No blend data was provided. Try generating a new blend from <a href="https://scentiq.ai/">ScentIQ.ai</a>.</p>
       `;
     } else if (status === "limit_reached") {
       // Limit reached view
       content.innerHTML = `
         <div class="badge">Limit Reached</div>
         <h1>Free Blend Limit Reached</h1>
-        <p class="msg">${decodeURIComponent(msg || "")}</p>
+        <p class="msg">${msg || "You’ve reached your free blend limit."}</p>
         <div class="btn-row">
-          <a class="btn" href="https://your-scentiq-site-url/pricing">View Subscription Options</a>
+          <a class="btn" href="https://scentiq.ai/pricing">View Subscription Options</a>
         </div>
       `;
     } else {
       // Normal blend view
-      const safeName = decodeURIComponent(name || "Your Custom Candle");
-      const safeBlend = decodeURIComponent(blend || "");
-      const safeMsg = decodeURIComponent(msg || "");
+      const safeName = name || "Your Custom Candle";
+      const safeBlend = blend || "";
+      const safeMsg = msg || "";
 
       content.innerHTML = `
         <span class="badge">Your Latest ScentQI Blend</span>
@@ -147,11 +146,12 @@
         <div class="usage">Free blends used: ${usage || "?"} of 3</div>
 
         <div class="btn-row">
-          <a class="btn" href="https://your-scentiq-site-url">Create Another Blend</a>
+          <a class="btn" href="https://scentiq.ai/">Create Another Blend</a>
         </div>
       `;
     }
   </script>
 </body>
 </html>
+
 
